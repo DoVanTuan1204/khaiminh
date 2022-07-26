@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-change-password',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router, private route: ActivatedRoute) { }
+
+  buttonOptions: any = {
+    text: 'Loggin',
+    type: 'success',
+    onClick: function ()  {
+
+
+    },
+    useSubmitBehavior: true,
+  };
+   onSubmit(e: Event) {
+    e.preventDefault();
+
+    this.router.navigate(['/login-form']);
+
+
+  }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,8 @@
 <form class="create-account-form" >
   <dx-form >
-
+    <dxi-item
+    itemType="group"
+    caption="Sign Up">
     <dxi-item dataField="email" editorType="dxTextBox"
       [editorOptions]="{ stylingMode: 'filled', placeholder: 'Email', mode: 'email' }">
       <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
@@ -35,24 +37,12 @@
   [buttonOptions]="buttonOptions"
 >
 
-</dxi-item>
+  </dxi-item>
     <dxi-item>
       <div class="login-link">
         Have an account? <a routerLink="/login">Sign In</a>
       </div>
     </dxi-item>
-
-    <ng-container *dxTemplate="let item of 'createAccountTemplate'">
-      <div>
-        <span class="dx-button-text">
-          <ng-container >
-            <dx-load-indicator width="24px" height="24px" [visible]="true"></dx-load-indicator>
-          </ng-container>
-
-          <ng-template #notLoading>Create a new account</ng-template>
-        </span>
-      </div>
-    </ng-container>
-
+    </dxi-item>
   </dx-form>
 </form>

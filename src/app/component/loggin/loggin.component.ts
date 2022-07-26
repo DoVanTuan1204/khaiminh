@@ -6,6 +6,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./loggin.component.scss']
 })
 export class LogginComponent implements OnInit {
+  loading=true;
+
+
 
 
 public employee : object = {
