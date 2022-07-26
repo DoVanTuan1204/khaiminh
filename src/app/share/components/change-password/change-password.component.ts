@@ -21,10 +21,7 @@ export class ChangePasswordComponent implements OnInit {
   };
    onSubmit(e: Event) {
     e.preventDefault();
-
     this.router.navigate(['/login-form']);
-
-
   }
 
   ngOnInit(): void {

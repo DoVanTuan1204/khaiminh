@@ -10,12 +10,20 @@ import { DxButtonModule,DxFormModule, DxLoadIndicatorModule,DxButtonGroupModule,
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { UserComponent } from './views/user/user.component';
+import { ClientComponent } from './views/client/client.component';
+import { ProjectComponent } from './views/project/project.component';
+import { CostComponent } from './views/cost/cost.component';
 @NgModule({
   declarations: [
     AppComponent,
     LogginComponent,
     SignUpComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    UserComponent,
+    ClientComponent,
+    ProjectComponent,
+    CostComponent
   ],
   imports: [
     BrowserModule,
