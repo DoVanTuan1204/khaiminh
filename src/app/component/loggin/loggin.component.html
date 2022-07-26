@@ -1,0 +1,42 @@
+<div class="container">
+
+<dx-form class="create-account-form"  >
+
+  <dxi-item dataField="email" editorType="dxTextBox"
+   [editorOptions]="{ stylingMode: 'filled', placeholder: 'Email', mode: 'email' }">
+     <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+      <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+     <dxo-label [visible]="false" dataField="username"></dxo-label>
+  </dxi-item>
+
+<dxi-item dataField="email" editorType="dxTextBox"
+  [editorOptions]="{ stylingMode: 'filled', placeholder: 'Email', mode: 'email' }">
+    <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+     <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+    <dxo-label [visible]="false" dataField="username"></dxo-label>
+</dxi-item>
+
+<dxi-item dataField="rememberMe" editorType="dxCheckBox"
+[editorOptions]="{ text: 'Remember me', elementAttr: { class: 'form-text' } }">
+<dxo-label [visible]="false"></dxo-label>
+
+</dxi-item>
+  <dxi-item
+  itemType="button"
+  horizontalAlignment="left"
+  [buttonOptions]="buttonOptions"
+>
+
+</dxi-item>
+<dxi-item>
+  <div >
+    Haven't an account? <a routerLink="/signUp">Sign Up</a>
+  </div>
+</dxi-item>
+<dxi-item>
+  <div >
+   Forgot password ? <a routerLink="/changePassWord">changePassWord</a>
+  </div>
+</dxi-item>
+</dx-form>
+</div>
