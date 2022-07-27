@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { ValidationCallbackData } from 'devextreme/ui/validation_rules';
 
 @Component({
@@ -9,24 +10,17 @@ import { ValidationCallbackData } from 'devextreme/ui/validation_rules';
 export class SignUpComponent implements OnInit {
 
   formData : any = {};
-
-  buttonOptions: any = {
-    text: 'Sign Up',
-    type: 'success',
-    onClick: function ()  {
-
-    },
-    useSubmitBehavior: true,
-  };
-
+  createUserName:string=''
+  createPassWord:string=''
+  createConfirmPassWord:string=''
 
   constructor() { }
 
 
-
-  confirmPassword = (e: ValidationCallbackData) => {
-    return e.value === this.formData.password;
+  handleCreateACC(){
+    alert('Tạo mới tài khoản thành công');
   }
+
 
   ngOnInit(): void {
   }

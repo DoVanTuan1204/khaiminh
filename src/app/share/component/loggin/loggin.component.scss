@@ -1,0 +1,39 @@
+
+
+.container{
+
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  .containerlogin
+  {
+   border-radius: solid 5px;
+   height:500px;
+   width: 300px;
+   box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 2.6px;
+   .create-account-form{
+     margin: 8px;
+   }
+  }
+}
+
+
+// @import "../../../../themes/generated/variables.base.scss";
+
+
+// .login-form {
+//   .link {
+//     text-align: center;
+//     font-size: 16px;
+//     font-style: normal;
+
+//     a {
+//       text-decoration: none;
+//     }
+//   }
+
+//   ::ng-deep .form-text {
+//     margin: 10px 0;
+//     color: rgba($base-text-color, alpha($base-text-color) * 0.7);
+//   }
+// }

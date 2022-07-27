@@ -10,18 +10,12 @@ export class ChangePasswordComponent implements OnInit {
 
   constructor( private router: Router, private route: ActivatedRoute) { }
 
-  buttonOptions: any = {
-    text: 'Loggin',
-    type: 'success',
-    onClick: function ()  {
+  oldPass:string=''
+  newPass:string=''
+  confirmPass:string=''
 
-
-    },
-    useSubmitBehavior: true,
-  };
    onSubmit(e: Event) {
-    e.preventDefault();
-    this.router.navigate(['/login-form']);
+
   }
 
   ngOnInit(): void {

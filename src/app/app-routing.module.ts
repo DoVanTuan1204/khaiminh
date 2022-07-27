@@ -1,13 +1,20 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChangePasswordComponent } from './component/change-password/change-password.component';
-import { LogginComponent } from './component/loggin/loggin.component';
-import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { ChangePasswordComponent } from './share/component/change-password/change-password.component';
+import { LogginComponent } from './share/component/loggin/loggin.component';
+import { SignUpComponent } from './share/component/sign-up/sign-up.component';
+import { ClientComponent } from './views/client/client.component';
+import { ProjectComponent } from './views/project/project.component';
+import { UserComponent } from './views/user/user.component';
+import { CostComponent } from './views/cost/cost.component';
+import { HomePageComponent } from './share/component/home-page/home-page.component';
+import { AuthService } from './share/services/auth.service';
 
 const routes: Routes = [
   {
     path:'',
     component:LogginComponent
+
   },
   {
     path:'login',
@@ -20,8 +27,31 @@ const routes: Routes = [
   {
     path:'changePassWord',
     component:ChangePasswordComponent
+  },
+  {
+    path:'client',
+    component:ClientComponent
+  },
+  {
+    path:'cost',
+    component:CostComponent
+  },
+  {
+    path:'project',
+    component:ProjectComponent
+  },
+  {
+    path:'user',
+    component:UserComponent
+  },
+  {
+    path:'homePage',
+    component:HomePageComponent
+  },
+  {
+    path:'**',
+    component:HomePageComponent
   }
-
 
 ];
 
