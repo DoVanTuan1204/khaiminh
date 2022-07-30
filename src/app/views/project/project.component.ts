@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestDataService } from 'src/app/share/services/test-data.service';
 
 @Component({
   selector: 'app-project',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
 
-  constructor() { }
+  constructor( private testData: TestDataService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.testData.getProject().subscribe(data=>{
+      console.log('data',data);
+
+    })
   }
 
 }

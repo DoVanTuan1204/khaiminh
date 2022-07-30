@@ -8,7 +8,7 @@ export interface IUser {
 
 const defaultPath = '/';
 const defaultUser = {
-  email: 'sandra@example.com',
+  email: 'nhan.nguyen1@gmail.com',
   avatarUrl: 'a.jpg'
 };
 
