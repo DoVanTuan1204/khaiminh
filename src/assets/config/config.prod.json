@@ -1,4 +1,4 @@
 {
-    "apiURL": "http://localhost:4000/",
+    "apiURL": "https://207.148.69.137:9999/",
     "webURL": "http://localhost:4200/"
 }

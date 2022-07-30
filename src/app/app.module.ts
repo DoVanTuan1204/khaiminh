@@ -22,7 +22,7 @@ import { CostComponent } from './views/cost/cost.component';
 import dxTextBox from 'devextreme/ui/text_box';
 import { HomePageComponent } from './share/component/home-page/home-page.component';
 import { AuthService } from './share/services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     DxNavBarModule,
     DxMenuModule,
     HttpClientModule,
+
+
 
 
   ],

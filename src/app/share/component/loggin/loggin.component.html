@@ -55,7 +55,7 @@
 
 
  -->
- <form action="/login" (ngSubmit)="handleSubmit()">
+ <form action="/login" method="post" (ngSubmit)="onSubmit()">
   <dx-form
       [formData]="employee"
       [colCount]="1">

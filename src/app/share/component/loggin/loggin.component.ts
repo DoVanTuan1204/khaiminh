@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import notify from 'devextreme/ui/notify';
 import { TestDataService } from '../../services/test-data.service';
 import { NgForm } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-loggin',
@@ -28,11 +29,11 @@ password:""
   onSubmit(){
 
     console.log(this.employee);
-    this.testData.postData(this.employee).subscribe(data=>{
-      console.log('data1111',data);
+    this.testData.postData(this.employee).subscribe((response)=>{
+      console.log('data1111',response);
+    },
 
-      console.log('account :',this.employee);
-    })
+    )
 
   }
   submitButtonOptions = {
@@ -40,10 +41,13 @@ password:""
     useSubmitBehavior: true
 }
   handleSubmit () {
-    this.testData.postData(this.employee).subscribe(data=>{
-      console.log('account :',this.employee);
+    this.testData.postData(this.employee).subscribe((data)=>{
+      console.log('account :',data);
 
-    })
+    },
+
+    )
+
 }
   }
 
