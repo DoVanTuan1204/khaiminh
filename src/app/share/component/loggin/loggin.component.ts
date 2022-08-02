@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import notify from 'devextreme/ui/notify';
 import { TestDataService } from '../../services/test-data.service';
 import { NgForm } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpXsrfTokenExtractor } from '@angular/common/http';
 
 @Component({
   selector: 'app-loggin',
@@ -16,13 +16,21 @@ export class LogginComponent implements OnInit {
 @ViewChild('loginForm')
 loginform!:NgForm;
 
-  constructor( private router: Router,private testData: TestDataService) { }
+
+
+
+
+
+
+  constructor( private router: Router,private testData: TestDataService,private tokenExtractor: HttpXsrfTokenExtractor) { }
+
+
+
 
 public employee : any = {
 email:"",
 password:""
 }
-
   ngOnInit(): void {
 
   }
@@ -41,12 +49,7 @@ password:""
     useSubmitBehavior: true
 }
   handleSubmit () {
-    this.testData.postData(this.employee).subscribe((data)=>{
-      console.log('account :',data);
 
-    },
-
-    )
 
 }
   }

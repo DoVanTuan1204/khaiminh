@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, observable } from 'rxjs';
 import { throwError } from 'rxjs/internal/observable/throwError';
@@ -20,23 +20,26 @@ private httpOptions :any = {
 }
 
 
-private REST_API_SERVER = "https://207.148.69.137:9999/api/v1"
+private REST_API_SERVER = "http://207.148.69.137:9999/api/v1"
 
-constructor(private httpClient:HttpClient) { }
+constructor(private httpClient:HttpClient,private tokenExtractor: HttpXsrfTokenExtractor) { }
 
   public postData<T>( tentity: T) : Observable<any> {
-    const url = 'https://207.148.69.137:9999/api/v1/user/login';
-   return this.httpClient.post<any>(url,tentity);
-  }
+    const url = 'http://207.148.69.137:9999/api/v1/user/login';
+    const token:any   = this.tokenExtractor.getToken() as string;
+    console.log(tentity);
 
+   return this.httpClient.post<any>(url,tentity);
+
+  }
 
 
   getProject(){
     var reqHeader = new HttpHeaders({
         'Content-Type': 'json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5oYW4ubmd1eWVuMUBnbWFpbC5jb20iLCJleHAiOjE2NTkxODQxNzl9.WsL6PmyzOpOybfKoLUyI_85dtxBIcJRMHJxY25KAS8A'
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5oYW4ubmd1eWVuMUBnbWFpbC5jb20iLCJleHAiOjE2NTkzNTExMzV9.p31W-NUz5tgznJMDf125WruSYtdo3WjtReJfN_aOTA0'
      });
-    return this.httpClient.get('https://207.148.69.137:9999/api/v1/user/project', { headers: reqHeader });
+    return this.httpClient.get('http://207.148.69.137:9999/api/v1/user/project', { headers: reqHeader });
 }
 
 
