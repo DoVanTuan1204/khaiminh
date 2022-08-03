@@ -50,12 +50,13 @@
   </dx-form>
 </div>
 
-</div>
+</div> -->
+
+<div class="container">
+  <div class="containerlogin">
 
 
-
- -->
- <form action="/login" method="post" (ngSubmit)="onSubmit()">
+ <form action="/login" method="post" (ngSubmit)="onSubmit()" class="create-account-form" >
   <dx-form
       [formData]="employee"
       [colCount]="1">
@@ -77,3 +78,5 @@
       </dxi-item>
   </dx-form>
 </form>
+</div>
+</div>

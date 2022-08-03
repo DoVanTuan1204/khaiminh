@@ -6,6 +6,7 @@ import { TestDataService } from '../../services/test-data.service';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse, HttpXsrfTokenExtractor } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-loggin',
   templateUrl: './loggin.component.html',
@@ -16,17 +17,10 @@ export class LogginComponent implements OnInit {
 @ViewChild('loginForm')
 loginform!:NgForm;
 
+  constructor( private router: Router,private testData: TestDataService) { }
 
-
-
-
-
-
-  constructor( private router: Router,private testData: TestDataService,private tokenExtractor: HttpXsrfTokenExtractor) { }
-
-
-
-
+public loi :any
+public keyAPI : any;
 public employee : any = {
 email:"",
 password:""
@@ -38,19 +32,28 @@ password:""
 
     console.log(this.employee);
     this.testData.postData(this.employee).subscribe((response)=>{
-      console.log('data1111',response);
-    },
+      this.testData.keyBaere = response.data
 
-    )
+      console.log('Key Baere',this.testData.keyBaere);
+
+      if(response.status === true){
+        this.router.navigate(['/project'])
+      }
+      else
+        if(response == Error){
+          console.log("a");
+
+        }
+    },
+      );
 
   }
+
+
+
   submitButtonOptions = {
     text: "Submit the Form",
     useSubmitBehavior: true
-}
-  handleSubmit () {
-
-
 }
   }
 

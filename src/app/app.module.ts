@@ -11,6 +11,7 @@ import { DxButtonModule,DxFormModule,
    DxValidatorModule,
    DxTabsModule,
     DxNavBarModule,
+    DxDataGridModule,
   DxMenuModule} from 'devextreme-angular';
 import { SignUpComponent } from './share/component/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
@@ -49,10 +50,7 @@ import { HttpClientModule, } from '@angular/common/http';
     DxNavBarModule,
     DxMenuModule,
     HttpClientModule,
-
-
-
-
+    DxDataGridModule,
   ],
   providers: [
     AuthService,

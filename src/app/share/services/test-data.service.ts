@@ -12,6 +12,8 @@ import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 export class TestDataService {
 
+  constructor(private httpClient:HttpClient,private tokenExtractor: HttpXsrfTokenExtractor) { }
+
 
 private httpOptions :any = {
   Headers: new HttpHeaders({
@@ -21,39 +23,33 @@ private httpOptions :any = {
 
 
 private REST_API_SERVER = "http://207.148.69.137:9999/api/v1"
-
-constructor(private httpClient:HttpClient,private tokenExtractor: HttpXsrfTokenExtractor) { }
-
+// const x = this.exemplesRemboursementService.geTitre(this.garantieCourante);
+keyBaere : any ={}
+idProjectDelete : any
   public postData<T>( tentity: T) : Observable<any> {
-    const url = 'http://207.148.69.137:9999/api/v1/user/login';
-    const token:any   = this.tokenExtractor.getToken() as string;
+    const url = `${this.REST_API_SERVER}/user/login`;
     console.log(tentity);
-
    return this.httpClient.post<any>(url,tentity);
-
   }
 
 
   getProject(){
     var reqHeader = new HttpHeaders({
         'Content-Type': 'json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5oYW4ubmd1eWVuMUBnbWFpbC5jb20iLCJleHAiOjE2NTkzNTExMzV9.p31W-NUz5tgznJMDf125WruSYtdo3WjtReJfN_aOTA0'
-     });
-    return this.httpClient.get('http://207.148.69.137:9999/api/v1/user/project', { headers: reqHeader });
+        'Authorization': `Bearer ${this.keyBaere.token}`
+      });
+
+     return this.httpClient.get(`${this.REST_API_SERVER}/project`, { headers: reqHeader });
 }
 
+  deleteProject(){
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'json',
+      'Authorization': `Bearer ${this.keyBaere.token}`
+    });
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-    // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+   return this.httpClient.delete(`${this.REST_API_SERVER}/project/${this.idProjectDelete}`, { headers: reqHeader });
   }
+
+
 }
